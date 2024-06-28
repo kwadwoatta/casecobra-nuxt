@@ -29,7 +29,7 @@ const isAdmin = user.value
         </NuxtLink>
 
         <div class="h-full flex items-center space-x-4">
-          <template v-if="user">
+          <template v-if="$auth.loggedIn">
             <NuxtLink
               href="/api/logout"
               :class="
