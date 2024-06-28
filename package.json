@@ -10,17 +10,31 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.22",
+    "@kinde-oss/kinde-auth-pkce-js": "^4.0.0",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "@nuxtjs/kinde": "^0.1.10",
+    "@prisma/client": "^5.16.1",
     "@radix-icons/vue": "^1.0.0",
+    "@tanstack/vue-query": "^5.48.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "lucide-vue-next": "^0.399.0",
     "nuxt": "^3.12.2",
+    "prisma": "^5.16.1",
     "radix-vue": "^1.8.5",
     "shadcn-nuxt": "^0.10.4",
+    "stripe": "^16.1.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.12.0"
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@types/node": "^20.14.9",
+    "@vueuse/core": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.5"
   }
 }
