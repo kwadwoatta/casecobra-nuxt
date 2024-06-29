@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { buttonVariants } from "@/components/ui/button";
 import { ArrowRight, Check, Star } from "lucide-vue-next";
+
+definePageMeta({
+  layout: "default",
+});
 </script>
 
 <template>

@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import "@/assets/css/tailwind.css";
 import { Toaster } from "@/components/ui/toast";
-
-definePageMeta({
-  layout: "default",
-});
 </script>
 
 <template>

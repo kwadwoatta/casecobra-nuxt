@@ -2,10 +2,12 @@
 </script>
 
 <template>
-  <NuxtLayout name="default">
-    <NuxtRouteAnnouncer />
-    <NuxtPage />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout>
+      <NuxtRouteAnnouncer />
+      <NuxtPage />
+    </NuxtLayout>
+  </div>
 </template>
 
 

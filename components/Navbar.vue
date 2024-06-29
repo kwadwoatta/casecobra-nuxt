@@ -31,7 +31,7 @@ const isAdmin = user.value
         <div class="h-full flex items-center space-x-4">
           <template v-if="$auth.loggedIn">
             <NuxtLink
-              href="/api/logout"
+              to="/api/logout"
               :class="
                 buttonVariants({
                   size: 'sm',
@@ -71,7 +71,7 @@ const isAdmin = user.value
 
           <template v-else>
             <RegisterLink
-              href="/api/register"
+              to="/api/register"
               :class="
                 buttonVariants({
                   size: 'sm',
@@ -83,7 +83,7 @@ const isAdmin = user.value
             </RegisterLink>
 
             <LoginLink
-              href="/api/login"
+              to="/api/login"
               :class="
                 buttonVariants({
                   size: 'sm',
