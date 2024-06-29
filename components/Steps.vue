@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 defineProps<{
   imgPath: string;
@@ -7,19 +7,19 @@ defineProps<{
 
 const STEPS = [
   {
-    name: "Step 1: Add image",
-    description: "Choose an image for your case",
-    url: "/upload",
+    name: 'Step 1: Add image',
+    description: 'Choose an image for your case',
+    url: '/upload',
   },
   {
-    name: "Step 2: Customize design",
-    description: "Make the case yours",
-    url: "/design",
+    name: 'Step 2: Customize design',
+    description: 'Make the case yours',
+    url: '/design',
   },
   {
-    name: "Step 3: Summary",
-    description: "Review your final design",
-    url: "/preview",
+    name: 'Step 3: Summary',
+    description: 'Review your final design',
+    url: '/preview',
   },
 ];
 
@@ -27,7 +27,7 @@ const route = useRoute();
 
 const isCurrent = (url: string) => route.path.endsWith(url);
 const isCompleted = (index: number) =>
-  STEPS.slice(index + 1).some((step) => route.path.endsWith(step.url));
+  STEPS.slice(index + 1).some(step => route.path.endsWith(step.url));
 </script>
 
 <template>
@@ -66,7 +66,7 @@ const isCompleted = (index: number) =>
               :src="imgPath"
               :class="
                 cn(
-                  'flex h-20 w-20 object-contain items-center justify-center',
+                  'flex h-20 w-20 items-center justify-center object-contain',
                   {
                     'border-none': isCompleted,
                     'border-zinc-700': isCurrent,
@@ -76,7 +76,7 @@ const isCompleted = (index: number) =>
             />
           </span>
 
-          <span class="ml-4 h-full mt-0.5 flex min-w-0 flex-col justify-center">
+          <span class="ml-4 mt-0.5 flex h-full min-w-0 flex-col justify-center">
             <span
               :class="
                 cn('text-sm font-semibold text-zinc-700', {
@@ -111,5 +111,3 @@ const isCompleted = (index: number) =>
     </li>
   </ol>
 </template>
-
-

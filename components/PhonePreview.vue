@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
-import { CaseColor } from "@prisma/client";
-import { AspectRatio } from "./ui/aspect-ratio";
+import { cn } from '@/lib/utils';
+import { CaseColor } from '@prisma/client';
+import { AspectRatio } from './ui/aspect-ratio';
 
 const props = defineProps<{
   croppedImageUrl: string;
@@ -20,21 +20,21 @@ const handleResize = () => {
 
 onMounted(() => {
   handleResize();
-  window.addEventListener("resize", handleResize);
+  window.addEventListener('resize', handleResize);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("resize", handleResize);
+  window.removeEventListener('resize', handleResize);
 });
 
 const caseBackgroundColor = computed(() => {
   switch (props.color) {
-    case "blue":
-      return "bg-blue-950";
-    case "rose":
-      return "bg-rose-950";
+    case 'blue':
+      return 'bg-blue-950';
+    case 'rose':
+      return 'bg-rose-950';
     default:
-      return "bg-zinc-950";
+      return 'bg-zinc-950';
   }
 });
 
@@ -53,7 +53,6 @@ const imageStyle = computed(() => {
 });
 </script>
 
-
 <template>
   <AspectRatio ref="aspectRatioRef" :ratio="3000 / 2001" class="relative">
     <div class="absolute z-20" :style="imageStyle">
@@ -61,7 +60,7 @@ const imageStyle = computed(() => {
         :width="renderedWidth"
         :class="
           cn(
-            'phone-skew relative z-20 rounded-t-[15px] rounded-b-[10px] md:rounded-t-[30px] md:rounded-b-[20px]',
+            'phone-skew relative z-20 rounded-b-[10px] rounded-t-[15px] md:rounded-b-[20px] md:rounded-t-[30px]',
             caseBackgroundColor
           )
         "
@@ -69,15 +68,12 @@ const imageStyle = computed(() => {
       />
     </div>
 
-    <div class="relative h-full w-full z-40">
+    <div class="relative z-40 h-full w-full">
       <img
         alt="phone"
         src="/clearphone.png"
-        class="pointer-events-none h-full w-full antialiased rounded-md"
+        class="pointer-events-none h-full w-full rounded-md antialiased"
       />
     </div>
   </AspectRatio>
 </template>
-
-
-

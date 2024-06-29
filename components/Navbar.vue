@@ -1,8 +1,7 @@
-
 <script setup lang="ts">
-import type { KindeClient } from "@kinde-oss/kinde-auth-pkce-js";
-import { ArrowRight } from "lucide-vue-next";
-import { buttonVariants } from "./ui/button";
+import type { KindeClient } from '@kinde-oss/kinde-auth-pkce-js';
+import { ArrowRight } from 'lucide-vue-next';
+import { buttonVariants } from './ui/button';
 
 const kinde: KindeClient = useKindeClient();
 
@@ -11,24 +10,24 @@ const { data: user } = await useAsyncData(async () => {
   return false;
 });
 
-const isAdmin = user.value
-  ? user.value.email === process.env.ADMIN_EMAIL
-  : false;
+const isAdmin = computed(
+  () => user.value && user.value.email === process.env.ADMIN_EMAIL
+);
 </script>
 
 <template>
   <nav
-    class="sticky z-[100] h-14 inset-x-0 top-0 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all"
+    class="sticky inset-x-0 top-0 z-[100] h-14 w-full border-b border-gray-200 bg-white/75 backdrop-blur-lg transition-all"
   >
     <MaxWidthWrapper>
       <div
         class="flex h-14 items-center justify-between border-b border-zinc-200"
       >
-        <NuxtLink href="/" class="flex z-40 font-semibold">
+        <NuxtLink href="/" class="z-40 flex font-semibold">
           case<span class="text-green-600">cobra</span>
         </NuxtLink>
 
-        <div class="h-full flex items-center space-x-4">
+        <div class="flex h-full items-center space-x-4">
           <template v-if="$auth.loggedIn">
             <NuxtLink
               to="/api/logout"
@@ -60,7 +59,7 @@ const isAdmin = user.value
               :class="
                 buttonVariants({
                   size: 'sm',
-                  class: 'hidden sm:flex items-center gap-1',
+                  class: 'hidden items-center gap-1 sm:flex',
                 })
               "
             >
@@ -94,14 +93,14 @@ const isAdmin = user.value
               Login
             </LoginLink>
 
-            <div class="h-8 w-px bg-zinc-200 hidden sm:block" />
+            <div class="hidden h-8 w-px bg-zinc-200 sm:block" />
 
             <NuxtLink
               href="/configure/upload"
               :class="
                 buttonVariants({
                   size: 'sm',
-                  class: 'hidden sm:flex items-center gap-1',
+                  class: 'hidden items-center gap-1 sm:flex',
                 })
               "
             >
@@ -114,4 +113,3 @@ const isAdmin = user.value
     </MaxWidthWrapper>
   </nav>
 </template>
-

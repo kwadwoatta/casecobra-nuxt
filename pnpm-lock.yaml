@@ -29,6 +29,9 @@ importers:
       '@tanstack/vue-query':
         specifier: ^5.48.2
         version: 5.48.2(vue@3.4.30)
+      '@vueuse/components':
+        specifier: ^10.11.0
+        version: 10.11.0(vue@3.4.30)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -1406,6 +1409,9 @@ packages:
 
   '@vue/shared@3.4.30':
     resolution: {integrity: sha512-CLg+f8RQCHQnKvuHY9adMsMaQOcqclh6Z5V9TaoMgy0ut0tz848joZ7/CYFFyF/yZ5i2yaw7Fn498C+CNZVHIg==}
+
+  '@vueuse/components@10.11.0':
+    resolution: {integrity: sha512-ZvLZI23d5ZAtva5fGyYh/jQtZO8l+zJ5tAXyYNqHJZkq1o5yWyqZhENvSv5mfDmN5IuAOp4tq02mRmX/ipFGcg==}
 
   '@vueuse/core@10.11.0':
     resolution: {integrity: sha512-x3sD4Mkm7PJ+pcq3HX8PLPBadXCAlSDR/waK87dz0gQE+qJnaaFhc/dZVfJz+IUYzTMVGum2QlR7ImiJQN4s6g==}
@@ -5992,6 +5998,15 @@ snapshots:
       vue: 3.4.30
 
   '@vue/shared@3.4.30': {}
+
+  '@vueuse/components@10.11.0(vue@3.4.30)':
+    dependencies:
+      '@vueuse/core': 10.11.0(vue@3.4.30)
+      '@vueuse/shared': 10.11.0(vue@3.4.30)
+      vue-demi: 0.14.8(vue@3.4.30)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
 
   '@vueuse/core@10.11.0(vue@3.4.30)':
     dependencies:

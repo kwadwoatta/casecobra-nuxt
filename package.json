@@ -17,6 +17,7 @@
     "@prisma/client": "^5.16.1",
     "@radix-icons/vue": "^1.0.0",
     "@tanstack/vue-query": "^5.48.2",
+    "@vueuse/components": "^10.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.399.0",

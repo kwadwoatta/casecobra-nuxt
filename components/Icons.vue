@@ -1,18 +1,9 @@
 <script setup lang="ts">
-const props = defineProps({
-  name: {
-    type: String,
-    required: true,
-  },
-  size: Number,
-  color: String,
-  strokeWidth: Number,
-  defaultClass: String,
-});
+// const props = defineProps<LucideProps>();
 </script>
 
 <template>
-  <svg v-bind="props" viewBox="0 0 687 155">
+  <svg viewBox="0 0 687 155">
     <g
       stroke="currentColor"
       strokeWidth="7"

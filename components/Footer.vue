@@ -1,16 +1,14 @@
-<script setup lang="ts">
-</script>
-
+<script setup lang="ts"></script>
 
 <template>
-  <footer class="bg-white h-20 relative">
+  <footer class="relative h-20 bg-white">
     <MaxWidthWrapper>
       <div class="border-t border-gray-200" />
 
       <div
-        class="h-full flex flex-col md:flex-row md:justify-between justify-center items-center"
+        class="flex h-full flex-col items-center justify-center md:flex-row md:justify-between"
       >
-        <div class="text-center md:text-left pb-2 md:pb-0">
+        <div class="pb-2 text-center md:pb-0 md:text-left">
           <p class="text-sm text-muted-foreground">
             &copy; {{ new Date().getFullYear() }} All rights reserved
           </p>
@@ -42,7 +40,5 @@
     </MaxWidthWrapper>
   </footer>
 </template>
-
-
 
 export default Footer

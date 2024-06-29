@@ -1,21 +1,20 @@
-
 <script setup lang="ts">
 import createKindeClient, {
   type KindeClient,
-} from "@kinde-oss/kinde-auth-pkce-js";
+} from '@kinde-oss/kinde-auth-pkce-js';
 import {
   useForwardPropsEmits,
   type DialogRootEmits,
   type DialogRootProps,
-} from "radix-vue";
-import { buttonVariants } from "./ui/button";
+} from 'radix-vue';
+import { buttonVariants } from './ui/button';
 
-const kinde = useState<KindeClient>("kinde");
+const kinde = useState<KindeClient>('kinde');
 
 await callOnce(async () => {
   kinde.value = await createKindeClient({
     client_id: process.env.NUXT_KINDE_CLIENT_ID,
-    domain: process.env.NUXT_KINDE_AUTH_DOMAIN ?? "",
+    domain: process.env.NUXT_KINDE_AUTH_DOMAIN ?? '',
     redirect_uri: window.location.origin,
   });
 });
@@ -30,7 +29,7 @@ const forwarded = useForwardPropsEmits(props, emits);
   <Dialog v-bind="forwarded">
     <DialogContent class="absolute z-[9999999]">
       <DialogHeader>
-        <div class="relative mx-auto w-24 h-24 mb-2">
+        <div class="relative mx-auto mb-2 h-24 w-24">
           <Image
             src="/snake-1.png"
             alt="snake image"
@@ -39,11 +38,11 @@ const forwarded = useForwardPropsEmits(props, emits);
           />
         </div>
         <DialogTitle
-          class="text-3xl text-center font-bold tracking-tight text-gray-900"
+          class="text-center text-3xl font-bold tracking-tight text-gray-900"
         >
           Log in to continue
         </DialogTitle>
-        <DialogDescription class="text-base text-center py-2">
+        <DialogDescription class="py-2 text-center text-base">
           <span class="font-medium text-zinc-900">
             Your configuration was saved! </span
           >{' '} Please login or create an account to complete your purchase.
@@ -67,5 +66,3 @@ const forwarded = useForwardPropsEmits(props, emits);
     </DialogContent>
   </Dialog>
 </template>
-
-

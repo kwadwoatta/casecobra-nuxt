@@ -1,7 +1,5 @@
-const HandleComponent = () => {
-  return (
-    <div class='w-5 h-5 rounded-full shadow border bg-white border-zinc-200 transition hover:bg-primary' />
-  )
-}
-
-export default HandleComponent
+const HandleComponent = () => { return (
+<div
+  class="h-5 w-5 rounded-full border border-zinc-200 bg-white shadow transition hover:bg-primary"
+/>
+) } export default HandleComponent

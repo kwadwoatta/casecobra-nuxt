@@ -1,5 +1,5 @@
 {
-  "editor.defaultFormatter": "octref.vetur",
-  "vetur.experimental.templateInterpolationService": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // "vetur.experimental.templateInterpolationService": true,
   "cSpell.words": ["kinde", "pkce", "vueuse"]
 }

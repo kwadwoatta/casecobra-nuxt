@@ -1,5 +1,5 @@
-import { OrderStatus } from "@prisma/client";
-import { db } from "~/db";
+import { OrderStatus } from '@prisma/client';
+import { db } from '~/db';
 
 export const changeOrderStatus = async ({
   id,

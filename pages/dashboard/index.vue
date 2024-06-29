@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { Progress } from "@/components/ui/progress";
-import { db } from "@/db";
-import type { KindeClient } from "@kinde-oss/kinde-auth-pkce-js";
-import { formatPrice } from "~/lib/utils";
+import { Progress } from '@/components/ui/progress';
+import { db } from '@/db';
+import type { KindeClient } from '@kinde-oss/kinde-auth-pkce-js';
+import { formatPrice } from '~/lib/utils';
 
 definePageMeta({
-  middleware: ["auth-logged-in"],
+  middleware: ['auth-logged-in'],
 });
 
 const kinde: KindeClient = useKindeClient();
 
 const { data } = await useAsyncData(async () => {
   if (await kinde.isAuthenticated()) return kinde.getUser();
+  return false;
 });
 const user = data.value;
 
@@ -29,7 +30,7 @@ const orders = await db.order.findMany({
     },
   },
   orderBy: {
-    createdAt: "desc",
+    createdAt: 'desc',
   },
   include: {
     user: true,
@@ -65,10 +66,9 @@ const WEEKLY_GOAL = 500;
 const MONTHLY_GOAL = 2500;
 </script>
 
-
 <template>
   <div class="flex min-h-screen w-full bg-muted/40">
-    <div class="max-w-7xl w-full mx-auto flex flex-col sm:gap-4 sm:py-4">
+    <div class="mx-auto flex w-full max-w-7xl flex-col sm:gap-4 sm:py-4">
       <div class="flex flex-col gap-16">
         <div class="grid gap-4 sm:grid-cols-2">
           <Card>
@@ -146,4 +146,5 @@ const MONTHLY_GOAL = 2500;
       </div>
     </div>
   </div>
-</template>;
+</template>
+;

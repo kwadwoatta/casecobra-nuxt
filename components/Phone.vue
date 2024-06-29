@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 defineProps<{
   imgSrc: string;
-  dark: boolean;
+  dark?: boolean;
 }>();
 </script>
 
 <template>
-  <div :class="cn('relative pointer-events-none z-50 overflow-hidden')">
+  <div :class="cn('pointer-events-none relative z-50 overflow-hidden')">
     <img
       :src="
         dark
@@ -19,15 +19,12 @@ defineProps<{
       alt="phone image"
     />
 
-    <div class="absolute -z-10 inset-0">
+    <div class="absolute inset-0 -z-10">
       <img
-        class="object-cover min-w-full min-h-full"
+        class="min-h-full min-w-full object-cover"
         :src="imgSrc"
         alt="overlaying phone image"
       />
     </div>
   </div>
 </template>
-
-
-export default Phone
