@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.22",
     "@kinde-oss/kinde-auth-pkce-js": "^4.0.0",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/kinde": "^0.1.10",
     "@prisma/client": "^5.16.1",

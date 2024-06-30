@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/kinde',
     '@nuxtjs/google-fonts',
+    "@nuxt/eslint"
   ],
   shadcn: {
     /**
