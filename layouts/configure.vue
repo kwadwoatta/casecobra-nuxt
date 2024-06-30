@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <MaxWidthWrapper className="flex-1 flex flex-col">
+  <MaxWidthWrapper class="flex flex-1 flex-col">
     <Steps />
     <slot />
   </MaxWidthWrapper>

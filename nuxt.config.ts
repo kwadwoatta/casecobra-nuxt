@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/kinde',
     '@nuxtjs/google-fonts',
-    "@nuxt/eslint"
+    '@uploadthing/nuxt',
   ],
   shadcn: {
     /**
@@ -32,5 +32,8 @@ export default defineNuxtConfig({
     families: {
       Recursive: true,
     },
+  },
+  uploadthing: {
+    routerPath: './server/routes/uploadthing.ts',
   },
 });

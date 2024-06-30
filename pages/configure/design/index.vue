@@ -1,3 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const route = useRoute();
+</script>
 
-<template></template>
+<template>
+  <div>
+    {{ route.params.slug }}
+  </div>
+</template>

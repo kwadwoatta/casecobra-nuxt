@@ -18,6 +18,7 @@
     "@prisma/client": "^5.16.1",
     "@radix-icons/vue": "^1.0.0",
     "@tanstack/vue-query": "^5.48.2",
+    "@uploadthing/nuxt": "^6.5.9",
     "@vueuse/components": "^10.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -30,7 +31,9 @@
     "stripe": "^16.1.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "vue2-dropzone": "^3.6.0"
+    "uploadthing": "^6.13.2",
+    "vue2-dropzone": "^3.6.0",
+    "zod": "^3.23.8"
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "devDependencies": {
