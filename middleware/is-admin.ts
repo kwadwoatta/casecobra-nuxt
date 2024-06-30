@@ -1,3 +1,10 @@
+import {
+  abortNavigation,
+  createError,
+  defineNuxtRouteMiddleware,
+  useNuxtApp,
+} from '#imports';
+
 export default defineNuxtRouteMiddleware(async () => {
   const config = useRuntimeConfig();
   const { ADMIN_EMAIL } = config.public;
