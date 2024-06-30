@@ -1,65 +1,49 @@
 <script setup lang="ts">
 import { Progress } from '@/components/ui/progress';
-import { db } from '@/db';
-import type { KindeClient } from '@kinde-oss/kinde-auth-pkce-js';
+import { db } from '~/db';
 import { formatPrice } from '~/lib/utils';
 
 definePageMeta({
   middleware: ['auth-logged-in'],
 });
 
-const kinde: KindeClient = useKindeClient();
-
 const { data } = await useAsyncData(async () => {
-  if (await kinde.isAuthenticated()) return kinde.getUser();
-  return false;
-});
-const user = data.value;
-
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
-
-if (!user || user?.email !== ADMIN_EMAIL) {
-  //   return notFound();
-}
-
-const orders = await db.order.findMany({
-  where: {
-    isPaid: true,
-    createdAt: {
-      gte: new Date(new Date().setDate(new Date().getDate() - 7)),
+  const orders = await db.order.findMany({
+    where: {
+      isPaid: true,
+      createdAt: {
+        gte: new Date(new Date().setDate(new Date().getDate() - 7)),
+      },
     },
-  },
-  orderBy: {
-    createdAt: 'desc',
-  },
-  include: {
-    user: true,
-    shippingAddress: true,
-  },
-});
+    orderBy: { createdAt: 'desc' },
+    include: { user: true, shippingAddress: true },
+  });
 
-const lastWeekSum = await db.order.aggregate({
-  where: {
-    isPaid: true,
-    createdAt: {
-      gte: new Date(new Date().setDate(new Date().getDate() - 7)),
+  const lastWeekSum = await db.order.aggregate({
+    where: {
+      isPaid: true,
+      createdAt: {
+        gte: new Date(new Date().setDate(new Date().getDate() - 7)),
+      },
     },
-  },
-  _sum: {
-    amount: true,
-  },
-});
+    _sum: { amount: true },
+  });
 
-const lastMonthSum = await db.order.aggregate({
-  where: {
-    isPaid: true,
-    createdAt: {
-      gte: new Date(new Date().setDate(new Date().getDate() - 30)),
+  const lastMonthSum = await db.order.aggregate({
+    where: {
+      isPaid: true,
+      createdAt: {
+        gte: new Date(new Date().setDate(new Date().getDate() - 30)),
+      },
     },
-  },
-  _sum: {
-    amount: true,
-  },
+    _sum: { amount: true },
+  });
+
+  return {
+    orders,
+    lastWeekSum,
+    lastMonthSum,
+  };
 });
 
 const WEEKLY_GOAL = 500;
@@ -75,7 +59,7 @@ const MONTHLY_GOAL = 2500;
             <CardHeader class="pb-2">
               <CardDescription>Last Week</CardDescription>
               <CardTitle class="text-4xl">
-                {{ formatPrice(lastWeekSum._sum.amount ?? 0) }}
+                {{ formatPrice(data?.lastWeekSum?._sum.amount! ?? 0) }}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -85,7 +69,9 @@ const MONTHLY_GOAL = 2500;
             </CardContent>
             <CardFooter>
               <Progress
-                :value="((lastWeekSum._sum.amount ?? 0) * 100) / WEEKLY_GOAL"
+                :value="
+                  ((data?.lastWeekSum?._sum.amount ?? 0) * 100) / WEEKLY_GOAL
+                "
               />
             </CardFooter>
           </Card>
@@ -93,7 +79,7 @@ const MONTHLY_GOAL = 2500;
             <CardHeader class="pb-2">
               <CardDescription>Last Month</CardDescription>
               <CardTitle class="text-4xl">
-                {formatPrice(lastMonthSum._sum.amount ?? 0)}
+                {{ formatPrice(data?.lastMonthSum?._sum.amount ?? 0) }}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -103,7 +89,9 @@ const MONTHLY_GOAL = 2500;
             </CardContent>
             <CardFooter>
               <Progress
-                :value="((lastMonthSum._sum.amount ?? 0) * 100) / MONTHLY_GOAL"
+                :value="
+                  ((data?.lastMonthSum?._sum.amount ?? 0) * 100) / MONTHLY_GOAL
+                "
               />
             </CardFooter>
           </Card>
@@ -124,7 +112,11 @@ const MONTHLY_GOAL = 2500;
           </TableHeader>
 
           <TableBody>
-            <TableRow v-for="order in orders" :key="order.id" class="bg-accent">
+            <TableRow
+              v-for="order in data?.orders"
+              :key="order.id"
+              class="bg-accent"
+            >
               <TableCell>
                 <div class="font-medium">{order.shippingAddress?.name}</div>
                 <div class="hidden text-sm text-muted-foreground md:inline">
@@ -132,7 +124,7 @@ const MONTHLY_GOAL = 2500;
                 </div>
               </TableCell>
               <TableCell class="hidden sm:table-cell">
-                <StatusDropdown id="{order.id}" orderStatus="{order.status}" />
+                <StatusDropdown :id="order.id" :orderStatus="order.status" />
               </TableCell>
               <TableCell class="hidden md:table-cell">
                 {{ order.createdAt.toLocaleDateString() }}

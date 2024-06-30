@@ -20,6 +20,7 @@
     "@vueuse/components": "^10.11.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "events": "^3.3.0",
     "lucide-vue-next": "^0.399.0",
     "nuxt": "^3.12.2",
     "prisma": "^5.16.1",
@@ -27,7 +28,8 @@
     "shadcn-nuxt": "^0.10.4",
     "stripe": "^16.1.0",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vue2-dropzone": "^3.6.0"
   },
   "packageManager": "pnpm@9.4.0+sha512.f549b8a52c9d2b8536762f99c0722205efc5af913e77835dbccc3b0b0b2ca9e7dc8022b78062c17291c48e88749c70ce88eb5a74f1fa8c4bf5e18bb46c8bd83a",
   "devDependencies": {

@@ -4,15 +4,16 @@ import { ArrowRight } from 'lucide-vue-next';
 import { buttonVariants } from './ui/button';
 
 const kinde: KindeClient = useKindeClient();
+const config = useRuntimeConfig();
 
-const { data: user } = await useAsyncData(async () => {
-  if (await kinde.isAuthenticated()) return kinde.getUser();
+const { data: isAdmin } = await useAsyncData(async () => {
+  if (await kinde.isAuthenticated()) {
+    const user = await kinde.getUserProfile();
+    return user && user.email === config.public.adminEmail;
+  }
+
   return false;
 });
-
-const isAdmin = computed(
-  () => user.value && user.value.email === process.env.ADMIN_EMAIL
-);
 </script>
 
 <template>
@@ -23,7 +24,7 @@ const isAdmin = computed(
       <div
         class="flex h-14 items-center justify-between border-b border-zinc-200"
       >
-        <NuxtLink href="/" class="z-40 flex font-semibold">
+        <NuxtLink to="/" class="z-40 flex font-semibold">
           case<span class="text-green-600">cobra</span>
         </NuxtLink>
 
@@ -31,6 +32,7 @@ const isAdmin = computed(
           <template v-if="$auth.loggedIn">
             <NuxtLink
               to="/api/logout"
+              external
               :class="
                 buttonVariants({
                   size: 'sm',
@@ -43,7 +45,7 @@ const isAdmin = computed(
 
             <NuxtLink
               v-if="isAdmin"
-              href="/dashboard"
+              to="/dashboard"
               :class="
                 buttonVariants({
                   size: 'sm',
@@ -55,7 +57,7 @@ const isAdmin = computed(
             </NuxtLink>
 
             <NuxtLink
-              href="/configure/upload"
+              to="/configure/upload"
               :class="
                 buttonVariants({
                   size: 'sm',
@@ -96,7 +98,7 @@ const isAdmin = computed(
             <div class="hidden h-8 w-px bg-zinc-200 sm:block" />
 
             <NuxtLink
-              href="/configure/upload"
+              to="/configure/upload"
               :class="
                 buttonVariants({
                   size: 'sm',

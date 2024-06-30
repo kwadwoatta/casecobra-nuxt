@@ -38,6 +38,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      events:
+        specifier: ^3.3.0
+        version: 3.3.0
       lucide-vue-next:
         specifier: ^0.399.0
         version: 0.399.0(vue@3.4.30)
@@ -62,6 +65,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.4)
+      vue2-dropzone:
+        specifier: ^3.6.0
+        version: 3.6.0
     devDependencies:
       '@nuxtjs/tailwindcss':
         specifier: ^6.12.0
@@ -2035,6 +2041,9 @@ packages:
   dotenv@16.4.5:
     resolution: {integrity: sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==}
     engines: {node: '>=12'}
+
+  dropzone@5.9.3:
+    resolution: {integrity: sha512-Azk8kD/2/nJIuVPK+zQ9sjKMRIpRvNyqn9XwbBHNq+iNuSccbJS6hwm1Woy0pMST0erSo0u4j+KJaodndDk4vA==}
 
   duplexer@0.1.2:
     resolution: {integrity: sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==}
@@ -4314,6 +4323,9 @@ packages:
     resolution: {integrity: sha512-HB+t2p611aIZraV2aPSRNXf0Z/oLZFrlygJm+sZbdJaW6lcFqEDQwnzUBXn+DApw+/QzDU/I9TeWx9izEjTmsA==}
     peerDependencies:
       vue: ^3.2.0
+
+  vue2-dropzone@3.6.0:
+    resolution: {integrity: sha512-YXC1nCWIZvfa98e/i6h+EshZCkFSxFEh0Sxr9ODfThAPPDVhAzLLlz/4XIx0NGO1QeSy6htwSstte47R7vVhLQ==}
 
   vue@3.4.30:
     resolution: {integrity: sha512-NcxtKCwkdf1zPsr7Y8+QlDBCGqxvjLXF2EX+yi76rV5rrz90Y6gK1cq0olIhdWGgrlhs9ElHuhi9t3+W5sG5Xw==}
@@ -6624,6 +6636,8 @@ snapshots:
       type-fest: 3.13.1
 
   dotenv@16.4.5: {}
+
+  dropzone@5.9.3: {}
 
   duplexer@0.1.2: {}
 
@@ -9251,6 +9265,10 @@ snapshots:
     dependencies:
       '@vue/devtools-api': 6.6.3
       vue: 3.4.30
+
+  vue2-dropzone@3.6.0:
+    dependencies:
+      dropzone: 5.9.3
 
   vue@3.4.30:
     dependencies:
