@@ -3,10 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      adminEmail: process.env.ADMIN_EMAIL,
-      // NUXT_KINDE_CLIENT_ID: process.env.NUXT_KINDE_CLIENT_ID,
-      // NUXT_KINDE_AUTH_DOMAIN: process.env.NUXT_KINDE_AUTH_DOMAIN,
-      // NUXT_KINDE_REDIRECT_URL: process.env.NUXT_KINDE_REDIRECT_URL,
+      ADMIN_EMAIL: process.env.ADMIN_EMAIL,
+      NUXT_KINDE_CLIENT_ID: process.env.NUXT_KINDE_CLIENT_ID,
+      NUXT_KINDE_AUTH_DOMAIN: process.env.NUXT_KINDE_AUTH_DOMAIN,
+      NUXT_KINDE_REDIRECT_URL: process.env.NUXT_KINDE_REDIRECT_URL,
     },
   },
   modules: [

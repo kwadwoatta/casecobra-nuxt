@@ -1,15 +1,14 @@
-export default defineNuxtRouteMiddleware(async (to, from) => {
-  const { $kindeClient } = useNuxtApp();
-  const isAuthenticated = await $kindeClient.isAuthenticated();
+export default defineNuxtRouteMiddleware(async () => {
+  const config = useRuntimeConfig();
+  const { ADMIN_EMAIL } = config.public;
 
-  if (!isAuthenticated) {
-    return navigateTo('/');
-  }
-
-  const userProfile = await $kindeClient.getUserProfile();
-  const ADMIN_EMAIL = process.env.ADMIN_EMAIL; // Assume this is defined in your environment variables
-
-  if (userProfile?.email !== ADMIN_EMAIL) {
+  if (useNuxtApp().$auth.user?.email !== ADMIN_EMAIL) {
+    if (import.meta.server) {
+      return createError({
+        statusCode: 401,
+        message: 'You must be an admin to access this page',
+      });
+    }
     return abortNavigation();
   }
 });

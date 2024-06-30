@@ -3,13 +3,13 @@ import type { KindeClient } from '@kinde-oss/kinde-auth-pkce-js';
 import { ArrowRight } from 'lucide-vue-next';
 import { buttonVariants } from './ui/button';
 
-const kinde: KindeClient = useKindeClient();
 const config = useRuntimeConfig();
 
 const { data: isAdmin } = await useAsyncData(async () => {
+  const kinde: KindeClient = useKindeClient();
   if (await kinde.isAuthenticated()) {
     const user = await kinde.getUserProfile();
-    return user && user.email === config.public.adminEmail;
+    return user && user.email === config.public.ADMIN_EMAIL;
   }
 
   return false;

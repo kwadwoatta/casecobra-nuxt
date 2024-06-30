@@ -4,7 +4,7 @@ import { db } from '~/db';
 import { formatPrice } from '~/lib/utils';
 
 definePageMeta({
-  middleware: ['auth-logged-in'],
+  middleware: ['auth-logged-in', 'is-admin'],
 });
 
 const { data } = await useAsyncData(async () => {
