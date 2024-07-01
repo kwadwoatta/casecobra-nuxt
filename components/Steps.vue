@@ -37,7 +37,7 @@ const isCompleted = (index: number) =>
       :key="step.name"
       class="relative overflow-hidden lg:flex-1"
     >
-      <div>
+      <NuxtLink :to="'/configure' + step.url">
         <span
           :class="
             cn(
@@ -105,7 +105,7 @@ const isCompleted = (index: number) =>
             />
           </svg>
         </div>
-      </div>
+      </NuxtLink>
     </li>
   </ol>
 </template>
