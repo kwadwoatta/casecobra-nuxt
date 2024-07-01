@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { cn } from '@/lib/utils';
 
-defineProps<{
-  imgPath: string;
-}>();
+defineProps<{}>();
 
 const STEPS = [
   {
@@ -63,7 +61,7 @@ const isCompleted = (index: number) =>
         >
           <span class="flex-shrink-0">
             <img
-              :src="imgPath"
+              :src="`/snake-${i + 1}.png`"
               :class="
                 cn(
                   'flex h-20 w-20 items-center justify-center object-contain',

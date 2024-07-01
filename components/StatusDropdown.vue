@@ -16,7 +16,7 @@ const props = defineProps<{ id: string; orderStatus: OrderStatus }>();
 const { mutate } = useMutation({
   mutationKey: ['change-order-status'],
   mutationFn: changeOrderStatus,
-  onSuccess: () => refreshNuxtData(),
+  // onSuccess: () => refreshNuxtData(),
 });
 
 function handleStatusChange(status: string) {

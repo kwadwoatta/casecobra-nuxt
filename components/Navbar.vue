@@ -4,15 +4,15 @@ import { ArrowRight } from 'lucide-vue-next';
 import { buttonVariants } from './ui/button';
 
 const config = useRuntimeConfig();
+const kinde: KindeClient = useKindeClient();
 
-const { data: isAdmin } = await useAsyncData(async () => {
-  const kinde: KindeClient = useKindeClient();
-  if (await kinde.isAuthenticated()) {
+const { data: isAdmin } = useAsyncData(async () => {
+  if ((await kinde.isAuthenticated()) ?? false) {
     const user = await kinde.getUserProfile();
-    return user && user.email === config.public.ADMIN_EMAIL;
+    return (user && user.email === config.public.ADMIN_EMAIL) ?? false;
   }
 
-  return false;
+  return   false;
 });
 </script>
 

@@ -33,7 +33,4 @@ export default defineNuxtConfig({
       Recursive: true,
     },
   },
-  uploadthing: {
-    routerPath: './server/routes/uploadthing.ts',
-  },
 });

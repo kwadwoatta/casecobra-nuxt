@@ -1,5 +1,11 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  // "vetur.experimental.templateInterpolationService": true,
-  "cSpell.words": ["kinde", "pkce", "Uploadthing", "vueuse"]
+  "cSpell.words": [
+    "clearphone",
+    "kinde",
+    "pkce",
+    "scratchmarks",
+    "Uploadthing",
+    "vueuse"
+  ]
 }
