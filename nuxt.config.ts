@@ -33,4 +33,10 @@ export default defineNuxtConfig({
       Recursive: true,
     },
   },
+  app: {
+    layoutTransition: {
+      name: 'configure',
+      mode: 'out-in',
+    },
+  },
 });
